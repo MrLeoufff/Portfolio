@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playwrite+BE+WAL:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="photo">
+                <img src="images/moi1.jpg" alt="Leliard René">
+            </div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button id="menu-toggle" aria-label="Toggle navigation">
+                    &#9776;
+                </button>
+            </nav>
+        </div>
+    </header>
+    <section id="about">
+        <div class="about-content">
+            <img src="images/main.jpg" alt="Décoration">
+            <div class="about-overlay">
+                <h2>À propos de moi</h2>
+                <div class="about-text">
+                    <p>Je suis un développeur créatif passionné par la technologie. Bien que je préfère travailler sur des projets backend, où je peux m'immerger dans la logique complexe et l'architecture système, je suis également compétent en tant que développeur fullstack. J'ai une solide expérience en développement frontend, ce qui me permet de créer des applications web complètes et fonctionnelles, du serveur à l'interface utilisateur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills">
+        <h2>Compétences</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <canvas id="htmlChart"></canvas>
+                <p>HTML/CSS</p>
+            </div>
+            <div class="skill">
+                <canvas id="jsChart"></canvas>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <canvas id="phpChart"></canvas>
+                <p>PHP/Symfony</p>
+            </div>
+        </div>
+    </section>        
+    <section id="portfolio">
+        <h2>Projets</h2>
+        <div class="project">
+            <img src="projet1.jpg" alt="Projet 1">
+            <p>Description du projet 1</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

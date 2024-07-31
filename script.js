@@ -37,77 +37,96 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutText.style.animationPlayState = 'running';
     });
 
-    // Initialisation des graphiques Chart.js
-    const ctxHtml = document.getElementById('htmlChart').getContext('2d');
-    const ctxJs = document.getElementById('jsChart').getContext('2d');
-    const ctxPhp = document.getElementById('phpChart').getContext('2d');
-
-    const dataHtml = {
-        labels: ['HTML', 'CSS', 'Sass', 'Bootstrap'],
-        datasets: [{
-            label: 'Compétences HTML/CSS',
-            data: [90, 85, 70, 75],
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
-            borderWidth: 1
-        }]
-    };
-
-    const dataJs = {
-        labels: ['JavaScript', 'Node.js', 'Express'],
-        datasets: [{
-            label: 'Compétences JavaScript',
-            data: [85, 75, 70],
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
-            borderWidth: 1
-        }]
-    };
-
-    const dataPhp = {
-        labels: ['PHP', 'Symfony'],
-        datasets: [{
-            label: 'Compétences PHP/Symfony',
-            data: [80, 70],
-            backgroundColor: ['rgba(75, 192, 192, 0.2)'],
-            borderColor: ['rgba(75, 192, 192, 1)'],
-            borderWidth: 1
-        }]
-    };
-
-    new Chart(ctxHtml, {
-        type: 'bar',
-        data: dataHtml,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+    const skills = {
+        HTML: {
+            title: "HTML",
+            description: "Maîtrise des balises HTML5 pour structurer le contenu des pages web."
+        },
+        CSS: {
+            title: "CSS",
+            description: "Stylisation des pages web avec CSS3, animations et mise en page responsive."
+        },
+        JavaScript: {
+            title: "JavaScript",
+            description: "Programmation côté client avec JavaScript, ES6+, et manipulation DOM."
+        },
+        PHP: {
+            title: "PHP",
+            description: "Développement backend avec PHP et gestion de bases de données MySQL."
+        },
+        Symfony: {
+            title: "Symfony",
+            description: "Utilisation du framework Symfony pour des applications web robustes."
+        },
+        SCSS: {
+            title: "SCSS",
+            description: "Préprocesseur CSS permettant d'écrire des styles plus propres et réutilisables."
+        },
+        SQL: {
+            title: "SQL",
+            description: "Langage de requête structuré pour gérer et manipuler les bases de données relationnelles."
+        },
+        Bootstrap: {
+            title: "Bootstrap",
+            description: "Framework CSS populaire pour concevoir des sites web responsives et modernes."
+        },
+        MongoDB: {
+            title: "MongoDB",
+            description: "Base de données NoSQL orientée documents pour une flexibilité et une scalabilité élevées."
         }
+    };
+
+    const skillCards = document.querySelectorAll('.skill-card');
+    const skillInfo = document.getElementById('skill-info');
+    const skillTitle = document.getElementById('skill-title');
+    const skillDescription = document.getElementById('skill-description');
+
+    skillCards.forEach(card => {
+        card.addEventListener('click', () => {
+            skillCards.forEach(c => c.classList.remove('clicked'));
+            card.classList.add('clicked');
+
+            const skill = card.getAttribute('data-skill');
+            skillTitle.textContent = skills[skill].title;
+            skillDescription.textContent = skills[skill].description;
+            skillInfo.classList.remove('hidden');
+        });
     });
 
-    new Chart(ctxJs, {
-        type: 'bar',
-        data: dataJs,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    const navbarLinks = document.querySelectorAll('nav ul li a');
 
-    new Chart(ctxPhp, {
-        type: 'bar',
-        data: dataPhp,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            // Calcul de la distance et durée de défilement en fonction de la distance
+            const targetPosition = targetSection.offsetTop;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1000; // Durée en ms
+            let start = null;
+
+            window.requestAnimationFrame(step);
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                const r = easeInOutCubic(progress, startPosition, distance, duration);
+                window.scrollTo(0, r);
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
                 }
             }
-        }
+
+            // Fonction de facilité pour un défilement plus doux
+            function easeInOutCubic(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t * t + b;
+                t -= 2;
+                return c / 2 * (t * t * t + 2) + b;
+            }
+        });
     });
 });

@@ -9,6 +9,12 @@ p {
     font-family: "Playwrite BE WAL", cursive;
 }
 
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 header {
     background: #333;
     color: #fff;
@@ -142,6 +148,12 @@ nav ul li a:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .about-text p {
+        animation-duration: 20s;
+    }
+}
+
 .skills-container {
     display: flex;
     justify-content: space-around;
@@ -173,14 +185,55 @@ section.show {
     transform: translateY(0);
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.project {
+    width: 22%;
+    margin: 1rem;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
 }
 
 .project img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.project h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.project p {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+}
+
+.project a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 form {
@@ -189,7 +242,13 @@ form {
 }
 
 form input,
+form textarea,
 form button {
     margin-bottom: 1rem;
     padding: 0.5rem;
+}
+
+form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }

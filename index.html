@@ -58,18 +58,46 @@
     </section>        
     <section id="portfolio">
         <h2>Projets</h2>
-        <div class="project">
-            <img src="projet1.jpg" alt="Projet 1">
-            <p>Description du projet 1</p>
+        <div class="projects-container">
+            <div class="project">
+                <a href="https://dico-anglais.netlify.app" target="_blank">
+                    <img src="images/dico-anglais.PNG" alt="Dico Anglais">
+                    <h3>Dico Anglais</h3>
+                    <p>Un dictionnaire en ligne pour la traduction de mots anglais.</p>
+                </a>
+            </div>
+            <div class="project">
+                <a href="https://mrleoufff-minijeux.netlify.app" target="_blank">
+                    <img src="images/minijeux.PNG" alt="Mini Jeux">
+                    <h3>Mini Jeux</h3>
+                    <p>Collection de mini jeux amusants en ligne.</p>
+                </a>
+            </div>
+            <div class="project">
+                <a href="https://mrleoufff-carrousel.netlify.app" target="_blank">
+                    <img src="images/carrousel.PNG" alt="Carrousel">
+                    <h3>Carrousel</h3>
+                    <p>Un carrousel d'images interactif et dynamique.</p>
+                </a>
+            </div>
+            <div class="project">
+                <a href="https://reneleliard.online" target="_blank">
+                    <img src="images/arcadia.png" alt="Portfolio">
+                    <h3>Jurasikarcadia</h3>
+                    <p>Un projet de gestion d'un zoo.</p>
+                </a>
+            </div>
         </div>
     </section>
     <section id="contact">
         <h2>Contact</h2>
-        <form>
+        <form action="https://formspree.io/f/meojggog" method="POST">
             <label for="name">Nom:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
             <button type="submit">Envoyer</button>
         </form>
     </section>

@@ -136,6 +136,7 @@ nav ul li a:hover {
     margin: 0;
     padding: 10px;
     animation: scrollText 10s linear infinite;
+    line-height: 3;
 }
 
 @keyframes scrollText {

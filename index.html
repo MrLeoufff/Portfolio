@@ -6,7 +6,9 @@
     <title>Mon Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/renderers/CSS3DRenderer.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,46 +33,25 @@
     <section id="about">
         <h2>À propos de moi</h2>
         <div class="about-content">
-            <img src="images/main.jpg" alt="Décoration">
             <div class="about-overlay">
                 <div class="about-text">
-                    <p>Je suis un développeur créatif passionné par la technologie.<br> Bien que je préfère travailler sur des projets backend, où je peux m'immerger dans la logique complexe et l'architecture système, je suis également compétent en tant que développeur fullstack. J'ai une solide expérience en développement frontend, ce qui me permet de créer des applications web complètes et fonctionnelles, du serveur à l'interface utilisateur.</p>
+                    <p>Je suis un développeur créatif passionné par la technologie. Bien que je préfère travailler sur des projets backend, où je peux m'immerger dans la logique complexe et la gestion de données, je suis également compétent en tant que développeur fullstack. J'ai une solide expérience en développement frontend, ce qui me permet de créer des applications web complètes et fonctionnelles, du serveur à l'interface utilisateur.</p>
+                    <br> 
+                    <strong>Compétences principales :</strong>
+                    <ul>
+                        <li>Backend : Maîtrise de PHP, Symfony, et Node.js</li>
+                        <li>Frontend : Expertise en HTML, CSS, JavaScript, et frameworks tels que React et Angular</li>
+                        <li>Bases de données : Expérience avec MySQL, PostgreSQL, et MongoDB</li>
+                        <li>Outils de développement : Git, Docker, CI/CD</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
     <section id="skills">
         <h2>Compétences</h2>
-        <div class="skills-container">
-            <div class="skill-card" data-skill="HTML">
-                <img src="images/html-5.png" alt="HTML Icon">
-            </div>
-            <div class="skill-card" data-skill="CSS">
-                <img src="images/css-3.png" alt="CSS Icon">
-            </div>
-            <div class="skill-card" data-skill="JavaScript">
-                <img src="images/js.png" alt="JavaScript Icon">
-            </div>
-            <div class="skill-card" data-skill="PHP">
-                <img src="images/php.png" alt="PHP Icon">
-            </div>
-            <div class="skill-card" data-skill="Symfony">
-                <img src="images/free-symfony-4-1174989.png" alt="Symfony Icon">
-            </div>
-            <div class="skill-card" data-skill="SCSS">
-                <img src="images/format.png" alt="SCSS Icon">
-            </div>
-            <div class="skill-card" data-skill="Bootstrap">
-                <img src="images/img.icons8.png" alt="Bootstrap Icon">
-            </div>
-            <div class="skill-card" data-skill="SQL">
-                <img src="images/serveur-sql.png" alt="SQL Icon">
-            </div>
-            <div class="skill-card" data-skill="MongoDB">
-                <img src="images/mongodb_plain_wordmark_logo_icon_146423.webp" alt="MongoDB Icon">
-            </div>
-        </div>
-    </section>     
+        <div id="skills-container"></div>
+    </section>  
     <section id="portfolio">
         <h2>Projets</h2>
         <div class="projects-container">

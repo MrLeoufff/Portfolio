@@ -77,9 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const skillCards = document.querySelectorAll('.skill-card');
-    const skillInfo = document.getElementById('skill-info');
-    const skillTitle = document.getElementById('skill-title');
-    const skillDescription = document.getElementById('skill-description');
 
     skillCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -87,9 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add('clicked');
 
             const skill = card.getAttribute('data-skill');
-            skillTitle.textContent = skills[skill].title;
-            skillDescription.textContent = skills[skill].description;
-            skillInfo.classList.remove('hidden');
+            let skillInfo = card.querySelector('.skill-info');
+
+            if (!skillInfo) {
+                skillInfo = document.createElement('div');
+                skillInfo.classList.add('skill-info');
+                card.appendChild(skillInfo);
+            }
+
+            skillInfo.innerHTML = `<h3>${skills[skill].title}</h3><p>${skills[skill].description}</p>`;
         });
     });
 

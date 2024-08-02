@@ -218,9 +218,14 @@ section#about h2 {
     }
 }
 
-#skill-info {
-    margin-top: 2rem;
+.skill-info {
+    margin-top: 1rem;
+    display: none;
     text-align: center;
+}
+
+.skill-card.clicked .skill-info {
+    display: block;
 }
 
 .hidden {
@@ -233,6 +238,8 @@ section#about h2 {
         align-items: center;
     }
 }
+
+
 
 section {
     padding: 2rem;

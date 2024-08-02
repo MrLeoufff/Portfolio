@@ -62,6 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                <p>${skill.description}</p>
                              </div>`;
 
+        // Vérifiez si l'image existe
+        const img = new Image();
+        img.src = `images/${skill.title.toLowerCase()}.png`;
+        img.onload = () => {
+            // Image existe
+        };
+        img.onerror = () => {
+            console.error(`Image not found: images/${skill.title.toLowerCase()}.png`);
+        };
+
         const objectCSS = new THREE.CSS3DObject(element);
         const theta = index * 2 * Math.PI / total;
         objectCSS.position.setFromSphericalCoords(radius, Math.PI / 2 - theta, theta);

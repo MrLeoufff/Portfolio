@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const objects = [];
     const radius = 400;
     const total = skillsData.length;
+    let clickedObject = null;
 
     skillsData.forEach((skill, index) => {
         const element = document.createElement('div');
@@ -61,26 +62,39 @@ document.addEventListener('DOMContentLoaded', () => {
                                <p>${skill.description}</p>
                              </div>`;
 
-        element.addEventListener('click', () => {
-            objects.forEach(obj => obj.element.classList.remove('clicked'));
-            element.classList.add('clicked');
-            const info = element.querySelector('.skill-info');
-            document.querySelectorAll('.skill-info').forEach(info => info.classList.add('hidden'));
-            info.classList.remove('hidden');
-        });
-
         const objectCSS = new THREE.CSS3DObject(element);
         const theta = index * 2 * Math.PI / total;
         objectCSS.position.setFromSphericalCoords(radius, Math.PI / 2 - theta, theta);
         scene.add(objectCSS);
         objects.push(objectCSS);
+
+        element.addEventListener('click', () => {
+            if (clickedObject) {
+                clickedObject.element.classList.remove('clicked');
+                clickedObject.element.querySelector('.skill-info').classList.add('hidden');
+                clickedObject.position.setFromSphericalCoords(radius, Math.PI / 2 - clickedObject.theta, clickedObject.theta);
+            }
+
+            if (clickedObject !== objectCSS) {
+                element.classList.add('clicked');
+                element.querySelector('.skill-info').classList.remove('hidden');
+                clickedObject = objectCSS;
+                clickedObject.theta = theta;
+                clickedObject.position.set(0, 0, 800);
+                clickedObject.lookAt(camera.position);
+            } else {
+                clickedObject = null;
+            }
+        });
     });
 
     function animate() {
         requestAnimationFrame(animate);
-        objects.forEach(object => {
-            object.rotation.y += 0.01;
-        });
+        if (!clickedObject) {
+            objects.forEach(object => {
+                object.rotation.y += 0.01;
+            });
+        }
         renderer.render(scene, camera);
     }
 

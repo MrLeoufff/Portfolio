@@ -5,7 +5,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background: linear-gradient(to bottom, #b7ccd6, #e0e0e0);
+    background: url('images/background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 p {
@@ -90,7 +91,7 @@ nav ul li a:hover {
 }
 
 section#about {
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     padding: 4rem 0;
 }
 

@@ -5,12 +5,18 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background: url('images/background-image.jpg') no-repeat center center fixed;
+    overflow-x: hidden;
+    background: url('images/background-image1.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 p {
     font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2 {
+    color: rgb(218, 218, 210);
 }
 
 section h2 {
@@ -21,7 +27,7 @@ section h2 {
 
 header {
     background: #333;
-    color: #fff;
+    color: #ccbebe;
     padding: 1rem 0;
 }
 
@@ -108,7 +114,7 @@ section#about {
 }
 
 .about-content:hover {
-    transform: translateY(-10px);
+    transform: translateY(-20px);
 }
 
 .about-overlay {
